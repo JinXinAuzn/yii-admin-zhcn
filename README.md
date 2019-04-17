@@ -130,9 +130,9 @@ return [
 		],
 	],
 
-	'aliases' => [
+	/*'aliases' => [
 		'@jx/admin_zhcn' => '@backend/runtime/tmp-extensions/yii2-admin-zhcn',
-	],
+	],*/
 
 	'as access' => [
 		'class' => 'jx\admin_zhcn\components\AccessControl',
