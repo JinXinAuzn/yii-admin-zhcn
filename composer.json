@@ -29,7 +29,7 @@
     },
     "autoload": {
         "psr-4": {
-            "yii2\\admin_zhcn\\": ""
+            "jx\\admin_zhcn\\": ""
         }
     },
     "extra": {
