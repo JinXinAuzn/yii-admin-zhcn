@@ -1,0 +1,41 @@
+{
+    "name": "jinxinauzn/yii2-admin-zhcn",
+    "description": "RBAC Auth manager for Yii2, Can be directly to development",
+    "type": "yii2-extension",
+    "keywords": [
+        "yii2",
+        "admin",
+        "auth",
+        "rbac"
+    ],
+    "license": "BSD-3-Clause",
+    "support": {
+        "issues": "https://github.com/JinXinAuzn/yii2-admin-zhcn/issues",
+        "source": "https://github.com/JinXinAuzn/yii2-admin-zhcn"
+    },
+    "authors": [
+        {
+            "name": "auzn",
+            "email": "690550322@qq.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.4.0",
+        "yiisoft/yii2": "~2.0.7"
+    },
+    "require-dev": {
+        "yiisoft/yii2-codeception": "~2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "yii2\\admin_zhcn\\": ""
+        }
+    },
+    "extra": {
+        "asset-installer-paths": {
+            "npm-asset-library": "vendor/npm",
+            "bower-asset-library": "vendor/bower"
+        }
+    }
+}
