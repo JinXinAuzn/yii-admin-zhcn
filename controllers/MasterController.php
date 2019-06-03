@@ -173,7 +173,7 @@ class MasterController extends BaseController
 	public function actionUpdate()
 	{
         $model = new ChangePassword();
-        if ($model->load(Yii::$app->getRequest()->post()) && $model->change()) {
+        if ($model->load(Yii::$app->getRequest()->post()) && $model->change(Yii::$app->request->get('id'))) {
             $this->showMessage('success',Yii::t('rbac-admin', 'Update Success'));
             return $this->redirect(['index']);
         }

@@ -59,11 +59,11 @@ class ChangePassword extends Model
 	 *
 	 * @return bool the saved model or null if saving fails
 	 */
-    public function change()
+    public function change($id)
     {
         if ($this->validate()) {
             /* @var $user Master */
-            $user = Yii::$app->user->identity;
+            $user = Master::findOne($id);
             $user->setPassword($this->newPassword);
             $user->generateAuthKey();
             if ($user->save()) {
