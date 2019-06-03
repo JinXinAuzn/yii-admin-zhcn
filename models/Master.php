@@ -37,20 +37,19 @@ class Master extends ActiveRecord implements IdentityInterface
     {
         return Configs::instance()->userTable;
     }
-	/**
-	 * @inheritdoc
-	 */
-	public function attributeLabels()
-	{
-		return [
-			'id' => Yii::t('rbac-admin', 'ID'),
-			'username' => Yii::t('rbac-admin', 'Username'),
-			'email' => Yii::t('rbac-admin', 'Email'),
-			'created_at' => Yii::t('rbac-admin', 'Created At'),
-			'status' => Yii::t('rbac-admin', 'Status'),
-			'password_hash' => Yii::t('rbac-admin', 'Password'),
-		];
-	}
+    /**
+     * @inheritdoc
+     */
+    public function attributeLabels()
+    {
+        return [
+            'id' => Yii::t('rbac-admin', 'ID'),
+            'username' => Yii::t('rbac-admin', 'Username'),
+            'email' => Yii::t('rbac-admin', 'Email'),
+            'created_at' => Yii::t('rbac-admin', 'Created At'),
+            'status' => Yii::t('rbac-admin', 'Status'),
+        ];
+    }
     /**
      * @inheritdoc
      */
@@ -69,19 +68,6 @@ class Master extends ActiveRecord implements IdentityInterface
         return [
             ['status', 'default', 'value' => self::STATUS_ACTIVE],
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_INACTIVE]],
-
-	        ['username', 'filter', 'filter' => 'trim'],
-	        ['username', 'required'],
-	        ['username', 'unique', 'targetClass' => 'jx\admin_zhcn\models\Master', 'message' => 'This username has already been taken.'],
-	        ['username', 'string', 'min' => 2, 'max' => 255],
-
-	        ['email', 'filter', 'filter' => 'trim'],
-	        ['email', 'required'],
-	        ['email', 'email'],
-	        ['email', 'unique', 'targetClass' => 'jx\admin_zhcn\models\Master', 'message' => 'This email address has already been taken.'],
-
-	        ['password_hash', 'required'],
-	        ['password_hash', 'string', 'min' => 6],
         ];
     }
 
@@ -93,10 +79,10 @@ class Master extends ActiveRecord implements IdentityInterface
         return static::findOne(['id' => $id, 'status' => self::STATUS_ACTIVE]);
     }
 
-	/**
-	 * @inheritdoc
-	 * @throws NotSupportedException
-	 */
+    /**
+     * @inheritdoc
+     * @throws NotSupportedException
+     */
     public static function findIdentityByAccessToken($token, $type = null)
     {
         throw new NotSupportedException('"findIdentityByAccessToken" is not implemented.');
@@ -126,8 +112,8 @@ class Master extends ActiveRecord implements IdentityInterface
         }
 
         return static::findOne([
-                'password_reset_token' => $token,
-                'status' => self::STATUS_ACTIVE,
+            'password_reset_token' => $token,
+            'status' => self::STATUS_ACTIVE,
         ]);
     }
 
@@ -183,12 +169,12 @@ class Master extends ActiveRecord implements IdentityInterface
         return Yii::$app->security->validatePassword($password, $this->password_hash);
     }
 
-	/**
-	 * Generates password hash from password and sets it to the model
-	 *
-	 * @param string $password
-	 * @throws \yii\base\Exception
-	 */
+    /**
+     * Generates password hash from password and sets it to the model
+     *
+     * @param string $password
+     * @throws \yii\base\Exception
+     */
     public function setPassword($password)
     {
         $this->password_hash = Yii::$app->security->generatePasswordHash($password);
